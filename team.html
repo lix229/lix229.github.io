@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Info - C.B.M</title>
+    <link rel="stylesheet" href="./assets/layui/css/layui.css">
+    <link rel="stylesheet" href="./assets/animate/animate.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+    <div id="app">
+        <div id="publicHeader"></div>
+        <div id="container"></div>
+    </div>
+</body>
+<script src='./assets/jquery.min.js'></script>
+<script src="./assets/layui/layui.js"></script>
+<script src="./js/header.js"></script>
+<script>
+    $(function(){
+        header({
+            id:'publicHeader',
+            arr:[
+                {label:'Browse',link:'./browse.html'},
+                {label:'↩ Go Back',link:'./list.html'},
+            ]
+        });
+        init();
+    })
+    function init(){
+        var activeTeam=JSON.parse(window.localStorage.getItem('team'));
+        var activeType=activeTeam.type;
+        var arr=[
+            {
+                img:'./assets/img/icon15.png',
+                title:'Alexander_Zurich129',
+                role:'Boomer',
+                points:'2465',
+                academic:'Lv2 Math & CS'
+            },
+            {
+                img:'./assets/img/icon16.png',
+                title:'Vandlindi2845',
+                role:'Hunter',
+                points:'3289',
+                academic:'Lv3 Commerce'
+            },
+            {
+                img:'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
+                title:'Me',
+                role:'N/A',
+                points:'N/A',
+                academic:'N/A'
+            }
+        ];
+        var itemText=``;
+        switch(activeType){
+            case 1:
+                for(var i=0;i<2;i++){
+                    var item=arr[i];
+                    itemText+=`
+                        <div class="container-content-item animated fadeInUp">
+                            <div class="container-content-item-image">
+                                <div style="width:60px;height:60px;margin:10px auto;">
+                                    <img src="${item.img}" alt="" 
+                                    style="width；100%;height:100%;">
+                                </div>
+                            </div>
+                            <div class="container-content-item-title">
+                                <div class="container-content-item-title-text">${item.title}</div>
+                                <div style="margin-top:20px;">
+                                    <div class="container-content-item-num">
+                                        <div style="float:left;">
+                                            <img src="./assets/img/icon12.png" alt="" 
+                                            style="width:30px;height:30px;"/>
+                                        </div> 
+                                        <div style="float:left;margin-left:10px;line-height:30px;">${item.role}</div>
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                    <div class="container-content-item-date" style="margin-left:20px;">
+                                        <div style="float:left;">
+                                            <img src="./assets/img/icon13.png" alt="" 
+                                            style="width:30px;height:30px;"/>
+                                        </div> 
+                                        <div style="float:left;margin-left:10px;line-height:30px;">${item.points}</div>
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                    <div class="container-content-item-date" style="margin-left:20px;">
+                                        <div style="float:left;">
+                                            <img src="./assets/img/icon14.png" alt="" 
+                                            style="width:30px;height:30px;"/>
+                                        </div> 
+                                        <div style="float:left;margin-left:10px;line-height:30px;">${item.academic}</div>
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                            </div>
+                            <div class="container-content-item-time"></div>
+                            <div style="clear:both;"></div>
+                            <div style="position:absolute;right:10px;top:50px;">
+                                <a href="https://steamcommunity.com/profiles/76561198246475502/">
+                                <div class="profile-btn" style="width:140px;padding:5px 0px 5px 0px;">
+                                    <div style="float:left;margin-left:20px;">
+                                        <img src="./assets/img/icon9.svg" alt="" 
+                                        style="width:25px;height:25px;margin:2px auto;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">Profile</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
+                itemText+=`
+                    <div id="joinBtnWrapper" class="container-content-item animated fadeInUp">
+                        <div id="joinBtn" style="font-size:24px;text-align:center;">
+                            Join The Team
+                        </div>
+                    </div>
+                    <div id="afterJoinContent" class="container-content-item" 
+                    style="display:none;">
+                        <div class="container-content-item-image">
+                            <div style="width:60px;height:60px;margin:10px auto;">
+                                <img src="${arr[2].img}" alt="" 
+                                style="width；100%;height:100%;">
+                            </div>
+                        </div>
+                        <div class="container-content-item-title">
+                            <div class="container-content-item-title-text">${arr[2].title}</div>
+                            <div style="margin-top:20px;">
+                                <div class="container-content-item-num">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon12.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].role}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div class="container-content-item-date" style="margin-left:20px;">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon13.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].points}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div class="container-content-item-date" style="margin-left:20px;">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon14.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].academic}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div class="container-content-item-time"></div>
+                        <div style="clear:both;"></div>
+                        <div style="position:absolute;right:10px;top:50px;">
+                            <a href="https://steamcommunity.com/profiles/76561198246475502/">
+                            <div class="profile-btn" style="width:140px;padding:5px 0px 5px 0px;">
+                                <div style="float:left;margin-left:20px;">
+                                    <img src="./assets/img/icon9.svg" alt="" 
+                                    style="width:25px;height:25px;margin:2px auto;"/>
+                                </div> 
+                                <div style="float:left;margin-left:10px;line-height:30px;">Profile</div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                break;
+            case 2:
+                itemText+=`
+                    <div id="joinBtnWrapper" class="container-content-item animated fadeInUp">
+                        <div id="joinBtn" style="font-size:24px;text-align:center;">
+                            Join The Team
+                        </div>
+                    </div>
+                    <div id="afterJoinContent" class="container-content-item" 
+                    style="display:none;">
+                        <div class="container-content-item-image">
+                            <div style="width:60px;height:60px;margin:10px auto;">
+                                <img src="${arr[2].img}" alt="" 
+                                style="width；100%;height:100%;">
+                            </div>
+                        </div>
+                        <div class="container-content-item-title">
+                            <div class="container-content-item-title-text">${arr[2].title}</div>
+                            <div style="margin-top:20px;">
+                                <div class="container-content-item-num">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon12.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].role}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div class="container-content-item-date" style="margin-left:20px;">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon13.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].points}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div class="container-content-item-date" style="margin-left:20px;">
+                                    <div style="float:left;">
+                                        <img src="./assets/img/icon14.png" alt="" 
+                                        style="width:30px;height:30px;"/>
+                                    </div> 
+                                    <div style="float:left;margin-left:10px;line-height:30px;">${arr[2].academic}</div>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div class="container-content-item-time"></div>
+                        <div style="clear:both;"></div>
+                        <div style="position:absolute;right:10px;top:50px;">
+                            <a href="https://steamcommunity.com/profiles/76561198246475502/">
+                            <div class="profile-btn" style="width:140px;padding:5px 0px 5px 0px;">
+                                <div style="float:left;margin-left:20px;">
+                                    <img src="./assets/img/icon9.svg" alt="" 
+                                    style="width:25px;height:25px;margin:2px auto;"/>
+                                </div> 
+                                <div style="float:left;margin-left:10px;line-height:30px;">Profile</div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                break;
+        }
+        
+        var text=`
+            <div style="width:90%;margin:0 auto;padding-bottom:20px;">
+                <div style="width:100%;height:240px;position:relative;">
+                    <img src="./assets/img/Team1.jpg" alt="" style="width:100%;height:100%;"/>
+                    <div style="width:100%;height:240px;background:rgba(0,0,0,0.6);position:absolute;top:0px;left:0px;">
+                        <div style="line-height:50px;padding:80px 0px 0px 50px;">
+                            <div style="float:left;margin-top:90px">
+                                <img src="./assets/img/icon2.png" alt="" style="width:50px;height:50px;"/>
+                            </div>
+                            <div style="font-family:'Sorts Mill Goudy', serif;float:left;color:#dfeaee;font-size:24px;margin-left:15px;margin-top:100px">
+                                ${activeTeam.title}
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>${itemText}</div>
+            </div>
+        `;
+        $("#container").html(text);
+        $("#joinBtn").on('click',function(){
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.msg('You are now a member of this team!', {icon: 1});
+            });
+            $("#joinBtnWrapper").css('display','none');
+            $("#afterJoinContent").css('display','');
+        });
+    }
+</script>
+</html>

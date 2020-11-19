@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Based Matchmaking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin|Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Eczar:700|Gentium+Basic" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a href="#" class="navbar-brand" href="#">C.B.M.</a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="slider-move" href="#" data-number="2">Browse</a></li>
+        <!-- <li><a href="#">Options</a></li> -->
+        <li><a href="#" onclick="openQuestionModal()">Help</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="questionModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>C.B.M. (Campus Based Match Making) is a social service aims to to help university students find 
+      in-game teammates on their campus.
+    </p>
+    <p>Use the navigation buttons below each slide to navigate between "Quick Launch", "Trending", and 
+      "Library". You may join or create teams for any game listed.
+    </p>
+  </div>
+</div>
+
+<div class="slick-slider">
+  <li>
+  <div class="full-card" data-number="0">
+
+    <div class="game-card bf1">
+      <h3 class="font--robotoslab">Battlefield 1</h3>
+      <p class="font--roboto">114514 Awaiting.</p>
+      <a href="./list.html" class="explore-button">FIND TEAMS</a>
+    </div>
+
+    <div class="game-card fh4">
+      <h3 class="font--robotoslab">Forza Horizon 4</h3>
+      <p class="font--roboto">114514 Awaiting.</p>
+      <a href="./list.html" class="explore-button">FIND TEAMS</a>
+    </div>
+
+    <div class="font-description">
+      <h2 class="font--robotoslab">Jump Right<br><span class="font--roboto">Back In</span></h2>
+      <p class="font--roboto">Battle is calling, no time to hesitate. Jump back into the fight you left off, your team is waiting for you.</p>
+    </div>
+
+  </div>
+  </li>
+  
+  <li>
+    <div class="full-card" data-number="1">
+
+    <div class="game-card fallout4">
+      <a href="https://store.steampowered.com/agecheck/app/377160/" class="explore-button">Explore</a>
+    </div>
+
+    <div class="game-card borderlands3">
+      <h3 class="font--robotoslab">Borderlands 3</h3>
+      <a href="https://store.steampowered.com/app/397540/3/" class="explore-button">Explore</a>
+    </div>
+
+    <div class="game-card bfv">
+      <h3 class="font--robotoslab">Battlefield V</h3>
+      <a href="https://store.steampowered.com/app/1238810/_5/" class="explore-button">Explore</a>
+    </div>
+
+
+    <div class="font-description">
+      <h2 class="font--lobster">Your mates are playing?</span></h2>
+    </div>
+      </li>
+    <li>
+    <div class="full-card" data-number="2">
+        <h2 id="library-title" class="font--robotoslab">Your Library</h2>
+      <!-- <div class="horizontal-scroll-wrapper squares"> -->
+      <div class="xx">
+        <div id='amongUs' class="a">
+          <h3 class="font--robotoslab">Among Us</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+        <div id='destiny' class="a">
+          <h3 class="font--robotoslab">Destiny 2</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+        <div id='sea' class="a">
+          <h3 class="font--robotoslab">Sea of Thieves</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+        <div id='squad' class="a">
+          <h3 class="font--robotoslab">Squad</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+        <div id='portal' class="a">
+          <h3 class="font--robotoslab">Portal</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+        <div id='terraria' class="a">
+          <h3 class="font--robotoslab">Terraria</h3>
+          <a href="./list.html" class="explore-button">FIND TEAMS</a>
+        </div>
+
+      </div>
+    </div>
+    </li>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js'></script>
+  <script  src="./scriptBrowse.js"></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <script src='https://isotope.metafizzy.co/jquery.isotope.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look For Your Team - C.B.M</title>
+    <link rel="stylesheet" href="./assets/layui/css/layui.css">
+    <link rel="stylesheet" href="./assets/animate/animate.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+    <div id="app">
+        <div id="publicHeader"></div>
+        <div id="container"></div>
+    </div>
+</body>
+<script src='./assets/jquery.min.js'></script>
+<script src="./assets/layui/layui.js"></script>
+<script src="./js/header.js"></script>
+<script>
+    $(function(){
+        header({
+            id:'publicHeader',
+            arr:[
+                {label:'Browse',link:'./browse.html'},
+                {label:'↩ Go Back',link:'./index.html'},
+            ]
+        });
+        init();
+    })
+    function init(){
+        var arr=[
+            {
+                id:1,
+                img:'./assets/img/icon2.png',
+                title:'Team Wol(6 stack quickplay form)',
+                num:'4 Seats Available',
+                date:'Today，9:20pm',
+                time:'Just Now',
+                ref:'./team.html'
+            },
+            {
+                id:2,
+                img:'./assets/img/icon3.png',
+                title:'Team Bear(nightmare hunt gm)',
+                num:'3 Seats Available',
+                date:'Today，10:00pm',
+                time:'3 min',
+                ref:'./team2.html'
+            },
+            {
+                id:3,
+                img:'./assets/img/icon4.png',
+                title:'Team Lion(zero hour heroic)',
+                num:'5 Seats Available',
+                date:'Tomorrow，11:00am',
+                time:'1h',
+                ref:'./team3.html'
+            }
+        ];
+        var itemText=``;
+        for(var i=0;i<arr.length;i++){
+            var item=arr[i];
+            itemText+=`
+                <div id="listTeam_${item.id}" class="container-content-item animated fadeInUp">
+                    <div class="container-content-item-image">
+                        <div style="width:60px;height:60px;margin:0 auto;">
+                            <img src="${item.img}" alt="" 
+                            style="width；100%;height:100%;border-radius:50%;">
+                        </div>
+                    </div>
+                    <div class="container-content-item-title">
+                        <div class="container-content-item-title-text">${item.title}</div>
+                        <div style="margin-top:20px;">
+                            <div class="container-content-item-num">
+                                <div style="float:left;">
+                                    <img src="./assets/img/icon1.png" alt="" 
+                                    style="width:30px;height:30px;"/>
+                                </div> 
+                                <div style="float:left;margin-left:10px;line-height:30px;">
+                                    ${item.num}
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="container-content-item-date" style="margin-left:20px;">
+                                <div style="float:left;">
+                                    <img src="./assets/img/icon6.png" alt="" 
+                                    style="width:30px;height:30px;"/>
+                                </div> 
+                                <div style="float:left;margin-left:10px;line-height:30px;">
+                                    ${item.date}
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="container-content-item-time"></div>
+                    <div style="clear:both;"></div>
+                    <div style="position:absolute;right:10px;top:50px;">
+                        <div style="width:120px;">
+                            <div style="float:left;">
+                                <img src="./assets/img/icon5.png" alt="" 
+                                style="width:30px;height:30px;"/>
+                            </div> 
+                            <div style="float:left;margin-left:10px;line-height:30px;">${item.time}</div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        var text=`
+            <div class="container-content">
+                <div class="container-content-title animated fadeIn">
+                    <div style="line-height:70px;">Look for a Team:</div>
+                    <div style="position:absolute;right:5px;top:18px;">
+                        <div id="createTeamBtn" class="add-btn">
+                            + Create Your Own Team
+                        </div>
+                    </div>
+                </div>
+                <div>${itemText}</div>
+            </div>
+        `;
+        $("#container").html(text);
+        for(var j=0;j<arr.length;j++){
+            var itemArr=arr[j];
+            (function(itemArr){
+                $("#listTeam_"+itemArr.id).on('click',function(){
+                    var teamInfo={
+                        type:1,
+                        title:itemArr.title
+                    }
+                    window.localStorage.setItem('team',JSON.stringify(teamInfo));
+                    window.open(itemArr.ref,'_blank');
+                });
+            })(itemArr);
+        }
+
+        $("#createTeamBtn").on('click',function(){
+            var popupText=`
+                <div id="commonPopup" style="height:300px;background: linear-gradient(to bottom, #2c2c2c, #070707);">
+                    <div style="width:300px;margin:0 auto;text-align:center;padding-top:30px;">
+                        <input id="teamNameInput" type="text" name="title" lay-verify="title" 
+                        autocomplete="off" 
+                        placeholder="input your team name" class="layui-input">
+                        <div style="margin-top:20px;">
+                        <button id="inputTeamBtn" type="button" 
+                        class="layui-btn layui-btn-primary" 
+                        style="width:300px;">Confirm and Create</button>
+                    </div>
+                    </div>
+                </div>`;
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.open({
+                    title:'Create Your Own Team',
+                    type: 1,
+                    skin: 'layui-layer-rim',
+                    area: ['600px', '300px'],
+                    content: popupText
+                });
+                $("#inputTeamBtn").on('click',function(){
+                    var teamNameVal=$("#teamNameInput").val();
+                    var teamName=teamNameVal.trim();
+                    if(teamName!=''){
+                        var teamInfo={
+                            type:2,
+                            title:teamName
+                        }
+                        window.localStorage.setItem('team',JSON.stringify(teamInfo));
+                        window.open('./team.html');
+                        layer.closeAll();
+                    }else{
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('Please Type in Your Team Name', {icon: 5});
+                        });
+                    }
+                });
+            });
+        });
+    }
+</script>
+</html>

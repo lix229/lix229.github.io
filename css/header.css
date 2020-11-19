@@ -1,0 +1,93 @@
+/* @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'; */
+@import 'https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy';
+
+html,body{
+    margin:0;
+    padding:0;
+}
+.public-header-wrapper{
+    width:100%;
+    height:100px;
+    background:linear-gradient(to bottom, #2c2c2c, #070707);
+    box-shadow: 0px 5px 16px -1px rgba(0, 0, 0, 0.4);
+    font-family: 'Sorts Mill Goudy', serif;
+    vertical-align: middle;
+    border-width: 0 0 1px;
+}
+.public-header{
+    width:90%;
+    margin:0 auto;
+    position:relative;
+    font-family:'Sorts Mill Goudy', serif;
+}
+.public-header-logo{
+    width:160px;
+    color: rgb(228, 228, 228);
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 100px;
+    letter-spacing: 3px;
+}
+.public-header-logo:hover{
+    cursor: pointer;
+    color:#337ab7;
+}
+.public-header-navbar{
+    position:absolute;
+    right:0px;
+    top:0px;
+    line-height: 100px;
+}
+.public-header-navbar-item{
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(228, 228, 228);
+    padding:0px 25px 0px 25px;
+    float:left;
+}
+.public-header-navbar-item:hover{
+    cursor: pointer;
+    background: rgb(78,78,78);
+}
+a{
+    color: rgb(228, 228, 228);
+    text-decoration: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .close {
+    color: #4b4b4b;
+    float: top;
+    font-size: 65px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    font-family: "Sorts Mill Goudy", serif;
+    font-size: 25px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
