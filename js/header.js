@@ -5,7 +5,7 @@ function header(target){
         var item=arr[i];
         navBarText+=`
             <div class="public-header-navbar-item animated fadeIn">
-                <a style="color: rgb(228, 228, 228)" href="${item.link}" target="_blank">${item.label}</a>
+                <a style="color: rgb(228, 228, 228)" href="${item.link}">${item.label}</a>
             </div>
         `;
     }
