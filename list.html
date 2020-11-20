@@ -134,7 +134,7 @@
                         title:itemArr.title
                     }
                     window.localStorage.setItem('team',JSON.stringify(teamInfo));
-                    window.open(itemArr.ref,'_blank');
+                    window.open(itemArr.ref,'_self');
                 });
             })(itemArr);
         }
